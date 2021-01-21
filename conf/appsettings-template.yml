@@ -1,0 +1,30 @@
+# Template only
+# (Contains credential)
+# To use : rename this as appsettings.yml and put credentials as required
+
+
+spring:
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    
+app:
+  api:
+    client:
+      rabbit:
+        base-url: http://xxxxx:8002
+        apikey: x
+      core:
+        base-url: https://xxxxx/core
+        apikey: x
+        apiSecret: x
+      bficonfins: 
+        base-url: https://xxxxx/bficonfins
+        apikey: x
+        apiSecret: x
+      token:
+        base-url: https://xxxxx/oauth/yyyyy
+      notification:
+        base-url: https://xxxxx/notification
+        apikey: x

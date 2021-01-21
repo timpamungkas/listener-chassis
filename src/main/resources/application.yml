@@ -1,0 +1,39 @@
+spring:
+  main:
+    banner-mode: OFF
+  devtools:
+    restart:
+      additional-paths:
+      - conf/**
+  rabbitmq:
+    publisher-confirm-type: CORRELATED
+    publisher-returns: true
+    listener:
+      simple:
+        max-concurrency: 10
+        prefetch: 20
+        acknowledge-mode: manual
+        retry:
+          enabled: false
+          initial-interval: 10s
+          max-interval: 300s
+          max-attempts: 5
+          multiplier: 2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    driverClassName: org.h2.Driver
+    password:
+  jpa:    generate-ddl: false
+    show-sql: false
+    hibernate:      ddl-auto: none
+
+feign:
+  hystrix:
+    enabled: false
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 60000
+#        decode404: true
